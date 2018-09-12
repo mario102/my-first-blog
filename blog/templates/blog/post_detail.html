@@ -7,6 +7,16 @@
                 Опубликовано: {{ post.published_date }}
             </div>
         {% endif %}
+        <style type="text/css"> 
+    	.edit{
+    		float: right;
+    	} 
+    	</style>
+        <div class="edit">
+        {% if user.is_authenticated %}
+        <a class="btn btn-default" href="{% url 'post_edit' pk=post.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {%endif%}
+    	</div>
         <h1>{{ post.title }}</h1>
         <p>{{ post.text|linebreaksbr }}</p>
     </div>
